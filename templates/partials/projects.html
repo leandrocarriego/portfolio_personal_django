@@ -1,0 +1,54 @@
+{% load static %}
+
+<section id="projects" class="bg-zinc-900">
+  <div
+    class="mx-auto px-6 py-8 md:py-16 max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl"
+  >
+    <h2 class="font-serif text-5xl font-bold pb-8 md:pb-10">Portfolio</h2>
+    <ul
+      class="flex flex-col lg:flex-row justify-center items-center md:flex-wrap md:justify-around pb-8 gap-8"
+    >
+      {% for project in projects %}
+      <li id="{{ project.id }}" class="w-full lg:w-2/5 md:h-auto">
+        <div class="rounded-md bg-zinc-800">
+          <div class="relative max-h-60 overflow-hidden">
+            {% if project.images.all %}
+            <img
+              class="w-full h-auto"
+              src="{{ project.images.all.0.image.url }}"
+              alt="Captura de pantalla de {{ project.title }}"
+            />
+            {% endif %}
+          </div>
+          <div class="p-4 flex justify-between items-center w-full">
+            <div>
+              <h2 class="text-1xl font-bold">{{ project.title }}</h2>
+              <h3 class="text-zinc-400">{{ project.category }}</h3>
+            </div>
+            <a
+              class="font-medium text-slate-800 bg-[#2fc9b9] hover:bg-[#26a699] px-4 py-2 rounded-md"
+              href="{% url 'project_detail' project.id %}"
+            >
+              Ver detalles
+            </a>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="w-full text-center pt-6 lg:pt-14 pb-2">
+      <a
+        class="font-medium text-slate-800 bg-[#2fc9b9] hover:bg-[#26a699] px-4 py-2 rounded-md"
+        href="https://github.com/leandrocarriego"
+        target="_blank"
+      >
+        Ver todos en GitHub
+        <img
+          src="{% static 'svg/arrow-rigth-icon.svg' %}"
+          alt="ícono para abrir el respositorio de github"
+          class="h-8 pl-1 inline"
+        />
+      </a>
+    </div>
+  </div>
+</section>

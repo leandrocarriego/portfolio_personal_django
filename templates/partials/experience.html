@@ -1,0 +1,55 @@
+{% load static %}
+
+<section id="experience" class="bg-zinc-800">
+  <div
+    class="mx-auto px-4 py-8 md:py-16 max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl"
+  >
+    <h2 class="font-serif text-5xl text-center font-bold pb-3">Experiencia</h2>
+    <ul class="flex flex-col justify-center items-center px-2 py-8 gap-8">
+      {% for experience in experiences %}
+      <li
+        class="rounded-md bg-zinc-900 w-full px-4 py-2 border-zinc-900 border-solid border-2 focus:border-white"
+      >
+        <div>
+          <div
+            class="flex justify-between items-center"
+            onclick="toggleExperienceContent('{{ experience.id }}')"
+          >
+            <h3 class="cursor-pointer text-white font-semibold inline-block">
+              {{ experience.position }} - {{ experience.employer }}
+            </h3>
+            <img
+              src="{% static 'svg/arrow-up-icon.svg' %}"
+              alt="ícono para abrir el respositorio de github"
+              id="js-arrowUp-{{ experience.id }}"
+              class="cursor-pointer hidden h-7 inline-block"
+            />
+            <img
+              src="{% static 'svg/arrow-down-icon.svg' %}"
+              alt="ícono para abrir el respositorio de github"
+              id="js-arrowDown-{{ experience.id }}"
+              class="cursor-pointer h-7 inline-block"
+            />
+          </div>
+
+          <div id="js-{{ experience.id }}" class="hidden pt-6">
+            <p class="font-semibold text-zinc-400">
+              {{ experience.start }} / {% if experience.end %}{{ experience.end }}{% else %}Actualmente{% endif %}
+            </p>
+            <p class="py-4">{{ experience.description }}</p>
+            <ul class="flex justify-evenly items-center flex-wrap py-6">
+              {% for tecnology in experience.technologies.all %}
+              <li class="text-[#2fc9b9] font-semibold">
+                {{ tecnology.name }} -
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<script src="{% static 'js/toggleExperienceContent.js' %}"></script>

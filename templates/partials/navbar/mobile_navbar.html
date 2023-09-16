@@ -1,0 +1,71 @@
+{% load static %}
+<div class="flex justify-end items-center pt-4 pr-4">
+  <button class="block lg:hidden" onclick="toggleMobileMenu()">
+    <img
+      src="{% static 'svg/menu-icon.svg' %}"
+      alt="ícono para abrir el menu en pantallas de dispositivos móviles"
+      class="h-12"
+    />
+  </button>
+</div>
+
+<div
+  id="mobile-menu"
+  class="fixed px-4 top-0 left-0 h-screen w-screen bg-black flex flex-col items-center justify-center z-50 hidden lg:hidden"
+>
+  <!-- Close Button -->
+  <div class="w-full flex justify-end items-center pt-4">
+    <button class="block pt-4" onclick="toggleMobileMenu()">
+      <img src="{% static 'svg/close-icon.svg' %}"
+                 alt="ícono para cerrar el menu en pantallas de dispositivos móviles" class="h-9 ">
+    </button>
+  </div>
+
+  <div class="w-full mx-auto my-auto pt-10 pb-20">
+    <ul
+      class="w-full font-serif text-white hover:text-gray-300 text-4xl pb-24 flex flex-col justify-evenly gap-8 items-baseline sm:items-center"
+    >
+      <li>
+        <a
+          href="#about"
+          class="px-3 py-2 rounded-md"
+          onclick="toggleMobileMenu()"
+          >Sobre mi</a
+        >
+      </li>
+      <li>
+        <a
+          href="#projects"
+          class="px-3 py-2 rounded-md"
+          onclick="toggleMobileMenu()"
+          >Portfolio</a
+        >
+      </li>
+      <li>
+        <a
+          href="#contact"
+          class="px-3 py-2 rounded-md"
+          onclick="toggleMobileMenu()"
+          >Contacto</a
+        >
+      </li>
+
+      <li class="pt-14 pb-20">
+        <a
+          href="{% if cv %}{{ cv }}{% endif%}"
+          download="CV_Leandro_Carriego.pdf"
+          class="font-medium font-sans text-slate-800 bg-[#2fc9b9] hover:bg-[#26a699] px-4 py-2 rounded-md ml-4 text-2xl {% if not cv %}disabled:opacity-50{% endif%}"
+          target="_blank"
+        >
+          Descargar CV
+        </a>
+      </li>
+    </ul>
+
+    <div class="w-full my-auto">
+      {% include 'partials/social_links.html' with icon_height=9 spacign='center' %}
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/toggleMobileMenu.js' %}"></script>

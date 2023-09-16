@@ -1,0 +1,32 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap" rel="stylesheet"> 
+    
+
+    <link rel="icon" href="{% static 'img/code-icon.png' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/code-icon.png' %}">
+
+    <title>{% block title %}{% endblock title %}</title>
+  
+  </head>
+  <body class="text-zinc-300 bg-zinc-900">
+
+    {% block navbar %}{% endblock navbar %} 
+    {% block header %}{% endblock header %} 
+    {% block content %}{% endblock content %}
+
+    {% include 'partials/footer.html' %}
+
+  </body>
+</html>
+

@@ -1,0 +1,105 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}Leandro Carriego - {{ project.titulo }}{% endblock title %} 
+
+{% block content %}
+
+<header class="bg-zinc-900 ">
+  <div class="pl-4 md:pl-12 pt-6 max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl">
+    <a href="{% url 'home' %}#{{ project.id }}">
+      <img
+          src="{% static 'svg/arrow-left.svg' %}"
+          alt="ícono para volver a la página de inicio"
+          class="h-10"
+        />
+    </a>
+  </div>
+  <div
+    class="flex flex-col justify-start mx-auto max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl"
+  >
+    <div class="px-4 pt-12 pb-16">
+      <h2 class="text-[#2fc9b9] font-bold">{{ project.category }}</h2>
+      <h1 class="text-4xl font-bold text-slate-300">{{ project.title }}</h1>
+    </div>
+  </div>
+</header>
+
+<main class="bg-zinc-900 mx-auto flex flex-col justify-start min-h-screen">
+  <section class="px-4 py-4">
+    <div class="mx-auto max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl">
+      <div>
+        <p class="mx-auto py-6 text-lg">{{ project.description }}</p>
+        <div class="flex items-start justify-start">
+          <div
+            class="w-2/5 pt-2 pr-6 mr-8 border-solid border-t-2 border-zinc-600"
+          >
+            <p class="text-lg font-semibold">Cliente</p>
+            <p>{{ project.client }}</p>
+          </div>
+          <div
+            class="h-full w-2/5 pt-2 pr-6 border-solid border-t-2 border-zinc-600"
+          >
+            <p class="text-lg font-semibold">Tecnologías:</p>
+            <p>
+              {% for technologie in project.technologies.all %} {{ technologie }}, {% endfor %}
+            </p>
+          </div>
+        </div>
+        <div class="flex justify-between items-center py-8">
+          <div>
+            <p>
+              <a
+                class="text-[#2fc9b9] hover:opacity-70 text-lg font-bold"
+                href="{{ project.project_link }}"
+                target="_blank"
+                >Enlace al proyecto
+                <img
+                  src="{% static 'svg/arrow-rigth-color-icon.svg' %}"
+                  alt="ícono para ver demo del proyecto"
+                  class="pl-1 h-8 inline"
+                />
+              </a>
+            </p>
+          </div>
+          <div>
+            {% if project.repository_link %}
+            <p>
+              <a
+                class="text-[#2fc9b9] hover:opacity-80"
+                href="{{ project.repository_link }}"
+                target="_blank"
+                >
+                <img
+                  src="{% static 'svg/eye-icon.svg' %}"
+                  alt="ícono para ver repositorio del proyecto"
+                  class="h-5 W-5 inline"
+                />
+                Ver código
+              </a>
+            </p>
+            {% else %}
+            <p>Código privado</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+  
+      <div class="flex flex-col gap-5">
+        {% if project.images.all %}
+          {% for image in project.images.all %}
+          <div>
+            <img
+              src="{{ image.image.url }}"
+              alt="Captura de pantalla de {{ project.title }}"
+            />
+          </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    
+  </section>
+</main>
+
+{% endblock content %}

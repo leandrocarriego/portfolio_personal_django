@@ -1,0 +1,32 @@
+{% load static %}
+
+<header id="home" class="bg-zinc-900">
+  <div
+    class="mx-auto h-screen flex flex-col justify-evenly py-10 max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl"
+  >
+    <div class="px-10 py-16">
+      <div>
+        <h2 class="font-serif text-2xl text-[#2fc9b9] font-bold">
+          Leandro Carriego
+        </h2>
+        <h1 class="text-3xl text-slate-200 pt-2">
+          <span>Software Developer /</span>
+          <span>Fullstack Developer</span>
+        </h1>
+      </div>
+      <div class="max-h-6 py-6">
+        {% include 'partials/social_links.html' with icon_height=5 spacign='start'  %}
+      </div>
+    </div>
+
+    <div class="mx-auto">
+      <a href="#about" >
+        <img
+        src="{% static 'svg/arrow-bundle.svg' %}"
+        alt="ícono para ir hacia la seccion 'sobre mi'"
+        class="animate-bounce h-12"
+      />
+      </a>
+    </div>
+  </div>
+</header>

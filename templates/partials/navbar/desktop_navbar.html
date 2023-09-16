@@ -1,0 +1,31 @@
+<div
+  class="lg:flex items-center justify-between mx-auto hidden h-20 w-full px-6 lg:px-8 lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl"
+> 
+  <div class="hidden lg:block">
+    <ul
+      class="flex items-baseline space-x-4 text-gray-300 pr-6 py-2 text-lg"
+    >
+      <li>
+        <a href="#about" class="px-3 py-2 hover:text-white">Sobre mi</a>
+      </li>
+      <li>
+        <a href="#projects" class="px-3 py-2 hover:text-white">Portfolio</a>
+      </li>
+      <li>
+        <a href="#contact" class="px-3 py-2 hover:text-white">Contacto</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="hidden lg:block">
+    <a
+      href="{% if cv %}{{ cv }}{% endif%}"
+      download="CV_Leandro_Carriego.pdf"
+      class="font-medium text-slate-800 bg-[#2fc9b9] hover:bg-[#26a699] px-4 py-2 rounded-md ml-4 {% if not cv %}disabled:opacity-50{% endif%}"
+      target="_blank"
+
+    >
+      Descargar CV
+    </a>
+  </div>
+</div>

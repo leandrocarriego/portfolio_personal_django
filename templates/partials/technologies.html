@@ -1,0 +1,27 @@
+<section id="skills" class="bg-zinc-900">
+  <div
+    class="mx-auto px-6 py-8 md:py-16 max-w-lg lg:max-w-4xl xl:max-w-6xl 2xl:max-w-8xl"
+  >
+    <h2 class="font-serif text-5xl text-center font-bold pb-3 md:pb-8">Mis Skills</h2>
+    <ul class="flex justify-center lg:justify-center items-center flex-wrap gap-x-2">
+      {% for technologie in technologies %}
+      <li
+        class="flex flex-col justify-between items-center text-white mx-auto my-3 h-32 w-2/5 lg:w-1/6 bg-zinc-800 border-solid border-2 border-zinc-600 px-4 py-2 rounded-md"
+      >
+        {% if technologie.icon %}
+        <div class="w-full flex justify-center items-center pt-4">
+          <img
+            src="{{ technologie.icon.url }}"
+            alt="logo de {{ technologie }}"
+            width="50"
+            height="50"
+          />
+        </div>
+        {% endif %}
+        <h3 class="font-semibold text-center py-3">{{ technologie }}</h3>
+      </li>
+
+      {% endfor %}
+    </ul>
+  </div>
+</section>

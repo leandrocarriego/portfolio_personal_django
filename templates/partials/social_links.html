@@ -1,0 +1,42 @@
+{% load static %}
+
+<ul class="w-full flex justify-{{ spacign }} items-center gap-8">
+    <li>
+      <a href="https://linkedin.com/in/leandro-carriego" target="_blank">
+        <img
+          src="{% static 'svg/linkedin-icon.svg' %}"
+          alt="ícono de linkedin"
+          class="h-{{ icon_height|add:3 }}"
+        />
+      </a>
+    </li>
+
+    <li>
+      <a href="https://github.com/leandrocarriego" target="_blank">
+        <img
+          src="{% static 'svg/github-icon.svg' %}"
+          alt="ícono de github"
+          class="h-{{ icon_height }}"
+        />
+      </a>
+    </li>
+
+    <li>
+      <a href="mailto:leandrocarriego@hotmail.com" target="_blank">
+        <img
+          src="{% static 'svg/mail-icon.svg' %}"
+          alt="ícono de mail"
+          class="h-{{ icon_height|add:1 }}"
+        />
+      </a>
+    </li>
+    <li>
+      <a href="https://api.whatsapp.com/send?phone=5491169510220" target="_blank">
+        <img
+          src="{% static 'svg/whatsapp-icon.svg' %}"
+          alt="ícono de whatsapp"
+          class="h-{{ icon_height|add:1 }}"
+        />
+      </a>
+    </li>
+  </ul>

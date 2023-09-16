@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %}Leandro Carriego - Portfolio{% endblock title %} 
+
+{% block navbar %} {% include 'partials/navbar/navbar.html' %} {% endblock %} 
+
+{% block header %} {% include 'partials/header.html' %} {% endblock header %} 
+
+{% block content %}
+
+<main>
+    {% include 'partials/about.html' %}
+    {% include 'partials/technologies.html' %}
+    {% include 'partials/projects.html' %}
+    {% include 'partials/experience.html' %}
+    {% include 'partials/contact.html' %}
+</main>
+
+{% endblock content %} 
